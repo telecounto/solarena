@@ -3,7 +3,7 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { Connection, PublicKey } from '@solana/web3.js';
 
 const Lobby = ({ onJoinGame, onCreateGame }) => {
-  const { publicKey, connected, signMessage } = useWallet();
+  const { publicKey, connected } = useWallet();
   const [solBalance, setSolBalance] = useState(0);
   const [wagerAmount, setWagerAmount] = useState(0.1); // Default wager
   const [availableGames, setAvailableGames] = useState([]);
@@ -46,22 +46,18 @@ const Lobby = ({ onJoinGame, onCreateGame }) => {
       return;
     }
 
-    // TODO: Implement logic to create game via Vercel API route / game server
-    // This would involve signing a transaction to lock wager in smart contract
-    // and then notifying the game server.
-    console.log(`Creating game with wager: ${wagerAmount} SOL`);
+    // Frontend-only: Mock game creation. Smart contract interaction removed.
+    console.log(`Creating game with wager: ${wagerAmount} SOL (frontend mock)`);
     onCreateGame(wagerAmount);
   };
 
   const handleJoinGame = async (gameId, wager) => {
     if (!connected || !publicKey) {
-      alert('Please connect your wallet.');
+      alert("Please connect your wallet.");
       return;
     }
-    // TODO: Implement logic to join game via Vercel API route / game server
-    // This would involve signing a transaction to lock wager in smart contract
-    // and then notifying the game server.
-    console.log(`Joining game ${gameId} with wager: ${wager} SOL`);
+    // Frontend-only: Mock game joining. Smart contract interaction removed.
+    console.log(`Joining game ${gameId} with wager: ${wager} SOL (frontend mock)`);
     onJoinGame(gameId);
   };
 
