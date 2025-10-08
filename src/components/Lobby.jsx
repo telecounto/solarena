@@ -1,3 +1,5 @@
+
+'use client';
 import React, { useState, useEffect } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { Connection, PublicKey } from '@solana/web3.js';
@@ -8,7 +10,6 @@ const Lobby = ({ onJoinGame, onCreateGame }) => {
   const [wagerAmount, setWagerAmount] = useState(0.1); // Default wager
   const [availableGames, setAvailableGames] = useState([]);
 
-  // Placeholder for WebSocket connection to game server for lobby updates
   useEffect(() => {
     if (!connected) return;
 
@@ -53,7 +54,7 @@ const Lobby = ({ onJoinGame, onCreateGame }) => {
 
   const handleJoinGame = async (gameId, wager) => {
     if (!connected || !publicKey) {
-      alert("Please connect your wallet.");
+      alert('Please connect your wallet.');
       return;
     }
     // Frontend-only: Mock game joining. Smart contract interaction removed.

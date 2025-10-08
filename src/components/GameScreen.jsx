@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
 
 const GameScreen = ({ gameId, playerNumber, onGameEnd }) => {
